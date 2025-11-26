@@ -1,0 +1,22 @@
+{
+  "filePath": ".spec-workflow/specs/catdoc-mvp/design.md",
+  "currentVersion": 2,
+  "snapshots": [
+    {
+      "version": 1,
+      "filename": "snapshot-001.json",
+      "timestamp": "2025-11-20T10:44:51.017Z",
+      "trigger": "initial",
+      "approvalId": "approval_1763635491015_sbfl2j830",
+      "approvalTitle": "Design Document for CatDoc MVP"
+    },
+    {
+      "version": 2,
+      "filename": "snapshot-002.json",
+      "timestamp": "2025-11-21T09:17:33.512Z",
+      "trigger": "revision_requested",
+      "approvalId": "approval_1763635491015_sbfl2j830",
+      "approvalTitle": "Design Document for CatDoc MVP"
+    }
+  ]
+}

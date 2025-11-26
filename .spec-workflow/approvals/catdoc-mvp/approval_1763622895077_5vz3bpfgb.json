@@ -1,0 +1,21 @@
+{
+  "id": "approval_1763622895077_5vz3bpfgb",
+  "title": "Requirements document for CatDoc MVP",
+  "filePath": ".spec-workflow/specs/catdoc-mvp/requirements.md",
+  "type": "document",
+  "status": "needs-revision",
+  "createdAt": "2025-11-20T07:14:55.077Z",
+  "category": "spec",
+  "categoryName": "catdoc-mvp",
+  "response": "Feedback Summary (1 comments):\n\nGeneral Comments:\n1. 異なるドメイン間の自然変換によるドキュメントの検索も要件に加えられますか？\n\n",
+  "annotations": "{\n  \"decision\": \"needs-revision\",\n  \"comments\": [\n    {\n      \"type\": \"general\",\n      \"comment\": \"異なるドメイン間の自然変換によるドキュメントの検索も要件に加えられますか？\",\n      \"timestamp\": \"2025-11-20T10:31:31.709Z\",\n      \"id\": \"comment_1763634691709_7w6n7v9eo\"\n    }\n  ],\n  \"summary\": \"Feedback Summary (1 comments):\\n\\nGeneral Comments:\\n1. 異なるドメイン間の自然変換によるドキュメントの検索も要件に加えられますか？\\n\\n\",\n  \"timestamp\": \"2025-11-20T10:31:39.006Z\"\n}",
+  "respondedAt": "2025-11-20T10:31:39.016Z",
+  "comments": [
+    {
+      "type": "general",
+      "comment": "異なるドメイン間の自然変換によるドキュメントの検索も要件に加えられますか？",
+      "timestamp": "2025-11-20T10:31:31.709Z",
+      "id": "comment_1763634691709_7w6n7v9eo"
+    }
+  ]
+}

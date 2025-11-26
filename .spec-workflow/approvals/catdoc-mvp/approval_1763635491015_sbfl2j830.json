@@ -1,0 +1,21 @@
+{
+  "id": "approval_1763635491015_sbfl2j830",
+  "title": "Design Document for CatDoc MVP",
+  "filePath": ".spec-workflow/specs/catdoc-mvp/design.md",
+  "type": "document",
+  "status": "needs-revision",
+  "createdAt": "2025-11-20T10:44:51.015Z",
+  "category": "spec",
+  "categoryName": "catdoc-mvp",
+  "response": "Feedback Summary (1 comments):\n\nGeneral Comments:\n1. 圏に関連するデータはグラフDBに保存したほうが処理効率が良さそうですがいかがでしょうか？ユーザーの情報などは従来通りRDBを利用していただいて構いません。\n\n",
+  "annotations": "{\n  \"decision\": \"needs-revision\",\n  \"comments\": [\n    {\n      \"type\": \"general\",\n      \"comment\": \"圏に関連するデータはグラフDBに保存したほうが処理効率が良さそうですがいかがでしょうか？ユーザーの情報などは従来通りRDBを利用していただいて構いません。\",\n      \"timestamp\": \"2025-11-21T09:17:27.457Z\",\n      \"id\": \"comment_1763716647457_5ufsc1ysn\"\n    }\n  ],\n  \"summary\": \"Feedback Summary (1 comments):\\n\\nGeneral Comments:\\n1. 圏に関連するデータはグラフDBに保存したほうが処理効率が良さそうですがいかがでしょうか？ユーザーの情報などは従来通りRDBを利用していただいて構いません。\\n\\n\",\n  \"timestamp\": \"2025-11-21T09:17:33.501Z\"\n}",
+  "respondedAt": "2025-11-21T09:17:33.515Z",
+  "comments": [
+    {
+      "type": "general",
+      "comment": "圏に関連するデータはグラフDBに保存したほうが処理効率が良さそうですがいかがでしょうか？ユーザーの情報などは従来通りRDBを利用していただいて構いません。",
+      "timestamp": "2025-11-21T09:17:27.457Z",
+      "id": "comment_1763716647457_5ufsc1ysn"
+    }
+  ]
+}
