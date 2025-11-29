@@ -1,5 +1,19 @@
 # Tasks Document
 
+## TDD Reference
+
+For tasks marked with `_TDD: true_`, you MUST follow the TDD workflow using these tools:
+
+1. **[RED] Gate-A**: Write failing tests → `run-tests` (all fail) → `tdd-gate` validate/approve gate:A
+2. **[GREEN] Gate-B**: Implement code → `run-tests` (all pass) → `tdd-gate` validate/approve gate:B
+3. **[REFACTOR] Gate-C**: Refactor → `run-tests` (still pass) → `generate-trace` → `tdd-gate` validate/approve gate:C
+
+Task cannot be marked [x] until Gate-C is approved.
+
+---
+
+## Tasks
+
 - [ ] 1. Create core interfaces in src/types/feature.ts
   - File: src/types/feature.ts
   - Define TypeScript interfaces for feature data structures
@@ -16,7 +30,10 @@
   - Purpose: Provide data layer foundation for feature
   - _Leverage: src/models/BaseModel.ts, src/utils/validation.ts_
   - _Requirements: 2.1_
-  - _Prompt: Role: Backend Developer with expertise in Node.js and data modeling | Task: Create a base model class extending BaseModel and implementing validation following requirement 2.1, leveraging existing patterns from src/models/BaseModel.ts and src/utils/validation.ts | Restrictions: Must follow existing model patterns, do not bypass validation utilities, maintain consistent error handling | Success: Model extends BaseModel correctly, validation methods implemented and tested, follows project architecture patterns_
+  - _TDD: true_
+  - _TestPath: tests/models/feature_model_test.go_
+  - _Language: go_
+  - _Prompt: Role: Backend Developer with expertise in Node.js and data modeling | Task: Create a base model class extending BaseModel and implementing validation following requirement 2.1, leveraging existing patterns from src/models/BaseModel.ts and src/utils/validation.ts | Restrictions: Must follow TDD workflow (Gate-A/B/C), do not bypass validation utilities, maintain consistent error handling | Success: All TDD gates approved, model extends BaseModel correctly, validation methods implemented and tested_
 
 - [ ] 3. Add specific model methods to FeatureModel.ts
   - File: src/models/FeatureModel.ts (continue from task 2)
@@ -25,7 +42,10 @@
   - Purpose: Complete model functionality for CRUD operations
   - _Leverage: src/models/BaseModel.ts_
   - _Requirements: 2.2, 2.3_
-  - _Prompt: Role: Backend Developer with expertise in ORM and database operations | Task: Implement CRUD methods and relationship handling in FeatureModel.ts following requirements 2.2 and 2.3, extending patterns from src/models/BaseModel.ts | Restrictions: Must maintain transaction integrity, follow existing relationship patterns, do not duplicate base model functionality | Success: All CRUD operations work correctly, relationships are properly handled, database operations are atomic and efficient_
+  - _TDD: true_
+  - _TestPath: tests/models/feature_model_test.go_
+  - _Language: go_
+  - _Prompt: Role: Backend Developer with expertise in ORM and database operations | Task: Implement CRUD methods and relationship handling in FeatureModel.ts following requirements 2.2 and 2.3, extending patterns from src/models/BaseModel.ts | Restrictions: Must follow TDD workflow (Gate-A/B/C), maintain transaction integrity, follow existing relationship patterns | Success: All TDD gates approved, CRUD operations work correctly, relationships are properly handled_
 
 - [ ] 4. Create model unit tests in tests/models/FeatureModel.test.ts
   - File: tests/models/FeatureModel.test.ts
@@ -52,7 +72,10 @@
   - Purpose: Provide business logic layer for feature operations
   - _Leverage: src/services/BaseService.ts, src/utils/errorHandler.ts, src/models/FeatureModel.ts_
   - _Requirements: 3.2_
-  - _Prompt: Role: Backend Developer with expertise in service layer architecture and business logic | Task: Implement concrete FeatureService following requirement 3.2, using FeatureModel and extending BaseService patterns with proper error handling from src/utils/errorHandler.ts | Restrictions: Must implement interface contract exactly, do not bypass model validation, maintain separation of concerns from data layer | Success: Service implements all interface methods correctly, robust error handling implemented, business logic is well-encapsulated and testable_
+  - _TDD: true_
+  - _TestPath: tests/services/feature_service_test.go_
+  - _Language: go_
+  - _Prompt: Role: Backend Developer with expertise in service layer architecture and business logic | Task: Implement concrete FeatureService following requirement 3.2, using FeatureModel and extending BaseService patterns with proper error handling | Restrictions: Must follow TDD workflow (Gate-A/B/C), implement interface contract exactly, do not bypass model validation | Success: All TDD gates approved, service implements all interface methods correctly, robust error handling implemented_
 
 - [ ] 7. Add service dependency injection in src/utils/di.ts
   - File: src/utils/di.ts (modify existing)
@@ -92,7 +115,10 @@
   - Write API integration tests
   - _Leverage: src/controllers/BaseController.ts, src/utils/validation.ts_
   - _Requirements: 4.2, 4.3_
-  - _Prompt: Role: Full-stack Developer with expertise in API development and validation | Task: Implement CRUD endpoints following requirements 4.2 and 4.3, extending BaseController patterns and using validation utilities from src/utils/validation.ts | Restrictions: Must validate all inputs, follow existing controller patterns, ensure proper HTTP status codes and responses | Success: All CRUD operations work correctly, request validation prevents invalid data, integration tests pass and cover all endpoints_
+  - _TDD: true_
+  - _TestPath: tests/api/feature_api_test.go_
+  - _Language: go_
+  - _Prompt: Role: Full-stack Developer with expertise in API development and validation | Task: Implement CRUD endpoints following requirements 4.2 and 4.3, extending BaseController patterns and using validation utilities | Restrictions: Must follow TDD workflow (Gate-A/B/C), validate all inputs, follow existing controller patterns | Success: All TDD gates approved, CRUD operations work correctly, request validation prevents invalid data_
 
 - [ ] 5. Add frontend components
   - Plan component architecture
