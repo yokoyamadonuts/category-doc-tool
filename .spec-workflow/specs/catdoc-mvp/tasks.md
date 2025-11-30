@@ -646,7 +646,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 6.1: YAML Parser
 
-- [-] 6.1 Create YAML parser for category.yaml
+- [x] 6.1 Create YAML parser for category.yaml
   - File: `src/infrastructure/parsers/YamlParser.ts`
   - Parse and validate category.yaml configuration
   - Convert to domain entities
@@ -691,7 +691,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 6.2: Markdown Parser
 
-- [ ] 6.2 Create Markdown parser for document import
+- [x] 6.2 Create Markdown parser for document import
   - File: `src/infrastructure/parsers/MarkdownParser.ts`
   - Parse Markdown with YAML frontmatter
   - Extract metadata and content
