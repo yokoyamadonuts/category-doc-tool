@@ -740,7 +740,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 7.1: CLI Init Command
 
-- [ ] 7.1 Create catdoc init command
+- [x] 7.1 Create catdoc init command
   - File: `src/application/cli/init.ts`
   - Initialize .catdoc directory and databases
   - Generate template files
@@ -785,7 +785,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 7.2: CLI Import Command
 
-- [ ] 7.2 Create catdoc import command
+- [x] 7.2 Create catdoc import command
   - File: `src/application/cli/import.ts`
   - Import Markdown documents as objects
   - Purpose: Add documents to CatDoc system
@@ -828,7 +828,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 7.3: CLI Validate Command
 
-- [ ] 7.3 Create catdoc validate command
+- [x] 7.3 Create catdoc validate command
   - File: `src/application/cli/validate.ts`
   - Validate category structure and axioms
   - Purpose: Check mathematical correctness
@@ -871,7 +871,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 7.4: CLI Search and Trace Commands
 
-- [ ] 7.4 Create catdoc search and trace commands
+- [x] 7.4 Create catdoc search and trace commands
   - Files: `src/application/cli/search.ts`, `src/application/cli/trace.ts`
   - Search objects and trace domain paths
   - Purpose: Find and explore document relationships
@@ -917,7 +917,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 7.5: CLI List and Show Commands
 
-- [ ] 7.5 Create catdoc list and show commands
+- [x] 7.5 Create catdoc list and show commands
   - File: `src/application/cli/list.ts`, `src/application/cli/show.ts`
   - List and display objects
   - Purpose: View document information
@@ -959,7 +959,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 7.6: CLI Entry Point
 
-- [ ] 7.6 Create CLI entry point
+- [x] 7.6 Create CLI entry point
   - File: `src/index.ts`
   - Register all commands with commander
   - Purpose: Main CLI entry point
