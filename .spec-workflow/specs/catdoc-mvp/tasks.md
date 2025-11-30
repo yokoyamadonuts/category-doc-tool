@@ -1349,7 +1349,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 12.1: README and Examples
 
-- [ ] 12.1 Create documentation
+- [x] 12.1 Create documentation
   - Files: `README.md`, `examples/`
   - Usage documentation and examples
   - Purpose: Help users get started
