@@ -1,0 +1,14 @@
+# Malformed YAML for error testing
+categories:
+  - id: test
+    name: Test Category
+    objects:
+      - id: obj-1
+        title:
+          - This should be a string not an array
+        domain: test
+    morphisms:
+      - id: morph-1
+        # Missing required fields: name, source, target
+        metadata:
+          broken: true

@@ -1,0 +1,152 @@
+# Multi-Domain Category Fixture
+# Multiple categories with functors and natural transformations
+
+categories:
+  # Source category: Sets with functions
+  - id: sets
+    name: Sets
+    objects:
+      - id: set-a
+        title: Set A
+        domain: mathematics
+        metadata:
+          elements: [1, 2, 3]
+      - id: set-b
+        title: Set B
+        domain: mathematics
+        metadata:
+          elements: [x, y]
+      - id: set-c
+        title: Set C
+        domain: mathematics
+        metadata:
+          elements: [true, false]
+    morphisms:
+      - id: f-ab
+        name: f
+        source: set-a
+        target: set-b
+      - id: g-bc
+        name: g
+        source: set-b
+        target: set-c
+      - id: h-ac
+        name: h
+        source: set-a
+        target: set-c
+        metadata:
+          note: "This is the composition g∘f"
+      - id: id-set-a
+        name: id_A
+        source: set-a
+        target: set-a
+        metadata:
+          isIdentity: true
+      - id: id-set-b
+        name: id_B
+        source: set-b
+        target: set-b
+        metadata:
+          isIdentity: true
+      - id: id-set-c
+        name: id_C
+        source: set-c
+        target: set-c
+        metadata:
+          isIdentity: true
+
+  # Target category: Types in programming
+  - id: types
+    name: Types
+    objects:
+      - id: type-int
+        title: Integer Type
+        domain: programming
+        metadata:
+          language: typescript
+      - id: type-string
+        title: String Type
+        domain: programming
+        metadata:
+          language: typescript
+      - id: type-bool
+        title: Boolean Type
+        domain: programming
+        metadata:
+          language: typescript
+    morphisms:
+      - id: parse-int
+        name: parseInt
+        source: type-string
+        target: type-int
+      - id: to-string
+        name: toString
+        source: type-int
+        target: type-string
+      - id: is-positive
+        name: isPositive
+        source: type-int
+        target: type-bool
+      - id: id-type-int
+        name: id_Int
+        source: type-int
+        target: type-int
+        metadata:
+          isIdentity: true
+      - id: id-type-string
+        name: id_String
+        source: type-string
+        target: type-string
+        metadata:
+          isIdentity: true
+      - id: id-type-bool
+        name: id_Bool
+        source: type-bool
+        target: type-bool
+        metadata:
+          isIdentity: true
+
+functors:
+  # Functor from Sets to Types
+  - id: F
+    name: Type Functor
+    sourceCategory: sets
+    targetCategory: types
+    objectMapping:
+      set-a: type-int
+      set-b: type-string
+      set-c: type-bool
+    morphismMapping:
+      f-ab: to-string
+      g-bc: is-positive
+      id-set-a: id-type-int
+      id-set-b: id-type-string
+      id-set-c: id-type-bool
+
+  # Identity functor on Sets
+  - id: Id-Sets
+    name: Identity on Sets
+    sourceCategory: sets
+    targetCategory: sets
+    objectMapping:
+      set-a: set-a
+      set-b: set-b
+      set-c: set-c
+    morphismMapping:
+      f-ab: f-ab
+      g-bc: g-bc
+      h-ac: h-ac
+      id-set-a: id-set-a
+      id-set-b: id-set-b
+      id-set-c: id-set-c
+
+naturalTransformations:
+  # Natural transformation from F to F (identity)
+  - id: eta
+    name: Identity Natural Transformation
+    sourceFunctor: F
+    targetFunctor: F
+    components:
+      set-a: id-type-int
+      set-b: id-type-string
+      set-c: id-type-bool

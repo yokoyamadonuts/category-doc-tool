@@ -1224,7 +1224,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 10.1: Dashboard Command
 
-- [ ] 10.1 Create catdoc dashboard command
+- [x] 10.1 Create catdoc dashboard command
   - File: `src/application/cli/dashboard.ts`
   - Start Hono server and serve Svelte dashboard
   - Purpose: Launch web dashboard from CLI
@@ -1270,7 +1270,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 11.1: Integration Tests
 
-- [ ] 11.1 Create integration tests
+- [x] 11.1 Create integration tests
   - Files: `tests/integration/*.test.ts`
   - End-to-end workflow tests
   - Purpose: Verify complete system works
@@ -1307,7 +1307,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 11.2: Test Fixtures
 
-- [ ] 11.2 Create test fixtures
+- [x] 11.2 Create test fixtures
   - Files: `tests/fixtures/*.yaml`, `tests/fixtures/*.md`
   - Sample data for testing
   - Purpose: Provide consistent test data

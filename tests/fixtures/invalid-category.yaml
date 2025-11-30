@@ -1,0 +1,33 @@
+# Invalid Category Fixture
+# Contains errors for testing validation
+
+categories:
+  - id: invalid-cat
+    name: Invalid Category
+    objects:
+      - id: only-object
+        title: Only Object
+        domain: test
+    morphisms:
+      # This morphism references a non-existent object
+      - id: bad-morph
+        name: invalid
+        source: only-object
+        target: non-existent-object
+
+functors:
+  # This functor references non-existent categories
+  - id: bad-functor
+    name: Invalid Functor
+    sourceCategory: non-existent-source
+    targetCategory: non-existent-target
+    objectMapping: {}
+    morphismMapping: {}
+
+naturalTransformations:
+  # This references non-existent functors
+  - id: bad-nat
+    name: Invalid Natural Transformation
+    sourceFunctor: non-existent-F
+    targetFunctor: non-existent-G
+    components: {}
