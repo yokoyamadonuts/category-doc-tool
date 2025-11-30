@@ -1,0 +1,22 @@
+{
+  "filePath": ".spec-workflow/specs/catdoc-mvp/tasks.md",
+  "currentVersion": 2,
+  "snapshots": [
+    {
+      "version": 1,
+      "filename": "snapshot-001.json",
+      "timestamp": "2025-11-29T18:25:28.268Z",
+      "trigger": "initial",
+      "approvalId": "approval_1764440728249_qu7qw13g7",
+      "approvalTitle": "Tasks Document for CatDoc MVP"
+    },
+    {
+      "version": 2,
+      "filename": "snapshot-002.json",
+      "timestamp": "2025-11-29T18:39:31.752Z",
+      "trigger": "approved",
+      "approvalId": "approval_1764440728249_qu7qw13g7",
+      "approvalTitle": "Tasks Document for CatDoc MVP"
+    }
+  ]
+}

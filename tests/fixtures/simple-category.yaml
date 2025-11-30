@@ -1,0 +1,57 @@
+# Simple Category Fixture
+# A basic category structure for testing
+
+categories:
+  - id: simple-cat
+    name: Simple Category
+    objects:
+      - id: obj-a
+        title: Object A
+        domain: test
+        metadata:
+          description: First test object
+      - id: obj-b
+        title: Object B
+        domain: test
+        metadata:
+          description: Second test object
+      - id: obj-c
+        title: Object C
+        domain: test
+        metadata:
+          description: Third test object
+    morphisms:
+      - id: f
+        name: f
+        source: obj-a
+        target: obj-b
+        metadata:
+          type: regular
+      - id: g
+        name: g
+        source: obj-b
+        target: obj-c
+        metadata:
+          type: regular
+      - id: id-a
+        name: id_a
+        source: obj-a
+        target: obj-a
+        metadata:
+          isIdentity: true
+      - id: id-b
+        name: id_b
+        source: obj-b
+        target: obj-b
+        metadata:
+          isIdentity: true
+      - id: id-c
+        name: id_c
+        source: obj-c
+        target: obj-c
+        metadata:
+          isIdentity: true
+
+functors: []
+
+naturalTransformations: []
