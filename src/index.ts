@@ -16,6 +16,7 @@ import { searchObjects, searchByFunctor } from "./application/cli/search";
 import { tracePath, traceDomainPath } from "./application/cli/trace";
 import { listObjects, listMorphisms, listCategories } from "./application/cli/list";
 import { showObject, showCategory, showFunctor } from "./application/cli/show";
+import { createDashboardServer } from "./application/cli/dashboard";
 
 // Import parsers
 import { YamlParser } from "./infrastructure/parsers/YamlParser";
@@ -380,15 +381,55 @@ program
     }
   });
 
-// Dashboard command (placeholder for Phase 10)
+// Dashboard command
 program
   .command("dashboard")
   .description("Start the web dashboard")
   .option("-p, --port <port>", "Port number", "3000")
   .option("-o, --open", "Open browser automatically")
-  .action((options) => {
-    console.log("catdoc dashboard - Coming in Phase 10");
-    console.log(`  Port: ${options.port}`);
+  .action(async (options) => {
+    try {
+      const parser = new YamlParser();
+      const config = await parser.parse(".catdoc/category.yaml");
+      const entities = parser.toEntities(config);
+
+      const server = createDashboardServer(
+        {
+          categories: entities.categories,
+          functors: entities.functors,
+          naturalTransformations: entities.naturalTransformations,
+        },
+        { port: parseInt(options.port, 10) }
+      );
+
+      const url = await server.start();
+
+      console.log(`\n  CatDoc Dashboard started!`);
+      console.log(`  URL: ${url}`);
+      console.log(`\n  API Endpoints:`);
+      console.log(`    GET  ${url}/api/health`);
+      console.log(`    GET  ${url}/api/objects`);
+      console.log(`    GET  ${url}/api/morphisms`);
+      console.log(`    GET  ${url}/api/categories`);
+      console.log(`    GET  ${url}/api/functors`);
+      console.log(`    GET  ${url}/api/graph`);
+      console.log(`    POST ${url}/api/validate`);
+      console.log(`    POST ${url}/api/trace`);
+      console.log(`\n  Press Ctrl+C to stop`);
+
+      // Handle graceful shutdown
+      process.on("SIGINT", async () => {
+        console.log("\n  Shutting down...");
+        await server.stop();
+        process.exit(0);
+      });
+
+      // Keep the process running
+      await new Promise(() => {});
+    } catch (error) {
+      console.error("Error:", error instanceof Error ? error.message : error);
+      process.exit(1);
+    }
   });
 
 // Parse and execute

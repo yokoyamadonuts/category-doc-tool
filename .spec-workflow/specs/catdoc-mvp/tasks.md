@@ -1002,7 +1002,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Task 8.1: Hono API Server
 
-- [ ] 8.1 Create Hono API server
+- [x] 8.1 Create Hono API server
   - File: `src/server.ts`, `src/application/api/*.ts`
   - Implement REST API endpoints
   - Purpose: Serve data to web dashboard
