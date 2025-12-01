@@ -4,7 +4,7 @@
  */
 import { describe, expect, it, beforeEach, afterEach } from "bun:test";
 import { TursoConnection } from "../../../src/infrastructure/database/turso/connection";
-import { initializeSchema, dropSchema } from "../../../src/infrastructure/database/turso/schema";
+import { initializeSchema } from "../../../src/infrastructure/database/turso/schema";
 import {
   UserRepository,
   ConfigRepository,

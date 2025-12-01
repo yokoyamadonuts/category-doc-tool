@@ -11,8 +11,8 @@ import { z } from "zod";
 import { readFileSync } from "fs";
 
 import { createCategory, type Category } from "../../domain/entities/Category";
-import { createCategoryObject, type CategoryObject } from "../../domain/entities/Object";
-import { createMorphism, type Morphism } from "../../domain/entities/Morphism";
+import { createCategoryObject } from "../../domain/entities/Object";
+import { createMorphism } from "../../domain/entities/Morphism";
 import { createFunctor, type Functor } from "../../domain/entities/Functor";
 import {
   createNaturalTransformation,
@@ -179,10 +179,10 @@ export class YamlParser {
 
     // Handle null/undefined sections
     const normalized = {
-      categories: (raw?.categories ?? []).map((cat: any) => ({
+      categories: (raw?.categories ?? []).map((cat: Record<string, unknown>) => ({
         ...cat,
-        objects: cat?.objects ?? [],
-        morphisms: cat?.morphisms ?? [],
+        objects: (cat?.objects as unknown[]) ?? [],
+        morphisms: (cat?.morphisms as unknown[]) ?? [],
       })),
       functors: raw?.functors ?? [],
       naturalTransformations: raw?.naturalTransformations ?? [],

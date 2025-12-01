@@ -13,11 +13,21 @@
     "dev": "bun --watch src/index.ts",
     "build": "bun build src/index.ts --outdir dist --target bun",
     "test": "bun test",
-    "lint": "bunx eslint src/",
-    "typecheck": "bunx tsc --noEmit"
+    "test:watch": "bun test --watch",
+    "test:coverage": "bun test --coverage",
+    "test:unit": "bun test tests/domain tests/infrastructure",
+    "test:integration": "bun test tests/integration",
+    "lint": "eslint src/ tests/",
+    "lint:fix": "eslint src/ tests/ --fix",
+    "typecheck": "tsc --noEmit",
+    "check": "bun run typecheck && bun run lint && bun run test",
+    "ci": "bun run lint && bun run typecheck && bun run test"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@eslint/js": "^9.39.1",
+    "@types/bun": "latest",
+    "eslint": "^9.39.1",
+    "typescript-eslint": "^8.48.0"
   },
   "peerDependencies": {
     "typescript": "^5"

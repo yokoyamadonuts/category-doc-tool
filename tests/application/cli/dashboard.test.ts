@@ -5,7 +5,6 @@
 import { describe, expect, it, afterEach } from "bun:test";
 import {
   createDashboardServer,
-  type DashboardOptions,
   type DashboardServer,
 } from "../../../src/application/cli/dashboard";
 import { createCategory } from "../../../src/domain/entities/Category";

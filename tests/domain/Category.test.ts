@@ -4,7 +4,6 @@
  */
 import { describe, expect, it } from "bun:test";
 import {
-  type Category,
   createCategory,
   getId,
   getName,

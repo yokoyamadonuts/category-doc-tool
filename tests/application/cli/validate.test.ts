@@ -8,8 +8,6 @@ import {
   validateFunctors,
   validateNaturalTransformations,
   validateAll,
-  type ValidateOptions,
-  type ValidateResult,
 } from "../../../src/application/cli/validate";
 import { createCategory } from "../../../src/domain/entities/Category";
 import { createCategoryObject } from "../../../src/domain/entities/Object";

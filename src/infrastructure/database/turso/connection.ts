@@ -11,7 +11,7 @@
  * @see tests/infrastructure/turso/connection.test.ts
  */
 
-import { createClient, type Client, type Transaction } from "@libsql/client";
+import { createClient, type Client, type InValue } from "@libsql/client";
 
 /**
  * Configuration for Turso connection
@@ -96,14 +96,17 @@ export class TursoConnection {
 
     const result = await this.client.execute({
       sql,
-      args: params as any,
+      args: params as InValue[],
     });
 
     return {
       rows: result.rows.map((row) => {
         const obj: Record<string, unknown> = {};
         for (let i = 0; i < result.columns.length; i++) {
-          obj[result.columns[i]] = row[i];
+          const columnName = result.columns[i];
+          if (columnName !== undefined) {
+            obj[columnName] = row[i];
+          }
         }
         return obj;
       }),
@@ -143,13 +146,16 @@ export class TursoConnection {
         execute: async (sql: string, params: unknown[] = []) => {
           const result = await tx.execute({
             sql,
-            args: params as any,
+            args: params as InValue[],
           });
           return {
             rows: result.rows.map((row) => {
               const obj: Record<string, unknown> = {};
               for (let i = 0; i < result.columns.length; i++) {
-                obj[result.columns[i]] = row[i];
+                const columnName = result.columns[i];
+                if (columnName !== undefined) {
+                  obj[columnName] = row[i];
+                }
               }
               return obj;
             }),

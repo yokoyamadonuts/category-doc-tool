@@ -38,7 +38,7 @@ export class FunctorRepository implements IFunctorRepository {
       return null;
     }
 
-    return this.recordToEntity(result.records[0].get("f"));
+    return this.recordToEntity(result.records[0]!.get("f"));
   }
 
   async findBySourceCategory(categoryId: string): Promise<Functor[]> {

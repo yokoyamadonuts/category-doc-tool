@@ -45,7 +45,7 @@ export class CategoryRepository implements ICategoryRepository {
       return null;
     }
 
-    return this.loadCategoryWithRelations(result.records[0].get("c"));
+    return this.loadCategoryWithRelations(result.records[0]!.get("c"));
   }
 
   async findByName(name: string): Promise<Category | null> {
@@ -58,7 +58,7 @@ export class CategoryRepository implements ICategoryRepository {
       return null;
     }
 
-    return this.loadCategoryWithRelations(result.records[0].get("c"));
+    return this.loadCategoryWithRelations(result.records[0]!.get("c"));
   }
 
   async save(category: Category): Promise<void> {

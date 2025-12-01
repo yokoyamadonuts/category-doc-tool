@@ -37,7 +37,7 @@ export class ObjectRepository implements IObjectRepository {
       return null;
     }
 
-    return this.recordToEntity(result.records[0].get("o"));
+    return this.recordToEntity(result.records[0]!.get("o"));
   }
 
   async findByCategoryId(categoryId: string): Promise<CategoryObject[]> {

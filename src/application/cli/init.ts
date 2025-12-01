@@ -214,7 +214,7 @@ export async function initProject(options: InitOptions): Promise<InitResult> {
     messages.push("Created example document template");
 
     // Database initialization (skipped by default)
-    let databaseInitialized = false;
+    const databaseInitialized = false;
     if (initDatabase) {
       // Database initialization would go here
       // For now, we skip it and let the user configure databases first

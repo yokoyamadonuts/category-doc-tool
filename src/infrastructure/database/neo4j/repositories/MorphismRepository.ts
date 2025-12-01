@@ -46,7 +46,7 @@ export class MorphismRepository implements IMorphismRepository {
       return null;
     }
 
-    const record = result.records[0];
+    const record = result.records[0]!;
     return this.recordToEntity(
       record.get("m"),
       record.get("sourceId") as string,
