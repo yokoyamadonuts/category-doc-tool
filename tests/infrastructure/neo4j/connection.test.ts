@@ -5,7 +5,7 @@
  * Note: These tests use mocking to avoid requiring a real Neo4j instance.
  * Integration tests with a real database should be in a separate test file.
  */
-import { describe, expect, it, mock, beforeEach } from "bun:test";
+import { describe, expect, it } from "bun:test";
 import {
   Neo4jConnection,
   type Neo4jConnectionConfig,
@@ -88,7 +88,7 @@ describe("Neo4jConnection", () => {
     it("should define correct structure for query results", () => {
       const result: QueryResult = {
         records: [
-          { get: (key: string) => ({ id: "1", name: "test" }) },
+          { get: (_key: string) => ({ id: "1", name: "test" }) },
         ],
         summary: {
           counters: {

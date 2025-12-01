@@ -7,7 +7,6 @@ import {
   showObject,
   showCategory,
   showFunctor,
-  type ShowResult,
 } from "../../../src/application/cli/show";
 import { createCategory } from "../../../src/domain/entities/Category";
 import { createCategoryObject } from "../../../src/domain/entities/Object";

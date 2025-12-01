@@ -4,7 +4,7 @@
  *
  * Tests the complete API workflow with real data through the Hono server.
  */
-import { describe, expect, it, beforeAll, afterAll } from "bun:test";
+import { describe, expect, it, beforeAll } from "bun:test";
 import { createApp, type DataStore } from "../../src/application/api/server";
 import { createCategory } from "../../src/domain/entities/Category";
 import { createCategoryObject } from "../../src/domain/entities/Object";

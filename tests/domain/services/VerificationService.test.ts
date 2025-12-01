@@ -4,7 +4,6 @@
  */
 import { describe, expect, it } from "bun:test";
 import {
-  type VerificationResult,
   verifyCategory,
   verifyFunctor,
   verifyNaturalTransformation,

@@ -14,9 +14,7 @@
 import neo4j, {
   type Driver,
   type Session,
-  type Result,
   type Record as Neo4jRecord,
-  type ResultSummary,
 } from "neo4j-driver";
 
 /**
@@ -138,7 +136,9 @@ export class Neo4jConnection {
     });
 
     try {
-      const result: Result = await session.run(cypher, params);
+      const result = await session.run(cypher, params);
+      const summary = result.summary;
+      const updates = summary.counters.updates();
 
       return {
         records: result.records.map((record: Neo4jRecord) => ({
@@ -147,12 +147,10 @@ export class Neo4jConnection {
         })),
         summary: {
           counters: {
-            nodesCreated: () => result.summary.counters.nodesCreated(),
-            nodesDeleted: () => result.summary.counters.nodesDeleted(),
-            relationshipsCreated: () =>
-              result.summary.counters.relationshipsCreated(),
-            relationshipsDeleted: () =>
-              result.summary.counters.relationshipsDeleted(),
+            nodesCreated: () => updates.nodesCreated,
+            nodesDeleted: () => updates.nodesDeleted,
+            relationshipsCreated: () => updates.relationshipsCreated,
+            relationshipsDeleted: () => updates.relationshipsDeleted,
           },
         },
       };
@@ -165,11 +163,7 @@ export class Neo4jConnection {
    * Execute a query within a transaction
    */
   async executeInTransaction<T>(
-    work: (
-      tx: {
-        run: (cypher: string, params?: Record<string, unknown>) => Promise<Result>;
-      }
-    ) => Promise<T>
+    work: (tx: { run: (cypher: string, params?: Record<string, unknown>) => Promise<unknown> }) => Promise<T>
   ): Promise<T> {
     if (!this.driver || !this.connected) {
       throw new Error("Not connected to Neo4j. Call connect() first.");
@@ -180,7 +174,9 @@ export class Neo4jConnection {
     });
 
     try {
-      return await session.executeWrite(work);
+      // Type assertion needed due to neo4j-driver type complexity
+      const result = await session.executeWrite(work as Parameters<typeof session.executeWrite>[0]);
+      return result as T;
     } finally {
       await session.close();
     }

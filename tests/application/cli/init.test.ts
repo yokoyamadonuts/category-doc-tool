@@ -5,7 +5,7 @@
 import { describe, expect, it, beforeEach, afterEach } from "bun:test";
 import { existsSync, mkdirSync, rmSync, readFileSync } from "fs";
 import { join } from "path";
-import { initProject, type InitOptions, type InitResult } from "../../../src/application/cli/init";
+import { initProject } from "../../../src/application/cli/init";
 
 describe("CLI Init Command", () => {
   const testDir = "/tmp/catdoc-test-init";

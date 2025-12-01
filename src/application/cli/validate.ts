@@ -90,7 +90,7 @@ export type ValidateAllInput = {
  */
 export function validateCategories(
   categories: Category[],
-  options: ValidateOptions = {}
+  _options: ValidateOptions = {}
 ): CategoryValidateResult {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -125,7 +125,7 @@ export function validateCategories(
 export function validateFunctors(
   functors: Functor[],
   categories: Category[],
-  options: ValidateOptions = {}
+  _options: ValidateOptions = {}
 ): FunctorValidateResult {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -185,7 +185,7 @@ export function validateNaturalTransformations(
   naturalTransformations: NaturalTransformation[],
   functors: Functor[],
   categories: Category[],
-  options: ValidateOptions = {}
+  _options: ValidateOptions = {}
 ): NaturalTransformationValidateResult {
   const errors: string[] = [];
   const warnings: string[] = [];

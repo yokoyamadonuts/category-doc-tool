@@ -5,7 +5,7 @@
  * Tests the complete CLI workflow: init -> import -> validate -> search -> trace
  */
 import { describe, expect, it, beforeEach, afterEach } from "bun:test";
-import { mkdirSync, rmSync, existsSync, writeFileSync, readFileSync } from "fs";
+import { mkdirSync, rmSync, existsSync, writeFileSync } from "fs";
 import { join } from "path";
 import { initProject } from "../../src/application/cli/init";
 import { importDocument, importDocuments } from "../../src/application/cli/import";

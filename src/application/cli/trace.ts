@@ -131,7 +131,7 @@ export function tracePath(
 
   // Find shortest path
   const sortedPaths = [...paths].sort((a, b) => a.length - b.length);
-  const shortestPath = sortedPaths[0];
+  const shortestPath = sortedPaths[0]!;
 
   return {
     source,
@@ -153,8 +153,8 @@ export function traceDomainPath(
   functors: Functor[],
   naturalTransformations: NaturalTransformation[]
 ): DomainTraceResult {
-  // Build category map for lookup
-  const categoryMap = new Map(categories.map((c) => [c.id, c]));
+  // Build category map for lookup (for future use in extended path finding)
+  const _categoryMap = new Map(categories.map((c) => [c.id, c]));
 
   // Find which category the source object belongs to
   let sourceCategory: Category | undefined;

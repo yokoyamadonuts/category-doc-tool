@@ -126,7 +126,7 @@ export const initializeSchema = async (
     try {
       await connection.executeQuery(query);
       console.log(`  ✓ Created constraint`);
-    } catch (error) {
+    } catch (_error) {
       // Constraint may already exist
       console.log(`  - Constraint already exists or skipped`);
     }
@@ -138,7 +138,7 @@ export const initializeSchema = async (
     try {
       await connection.executeQuery(query);
       console.log(`  ✓ Created index`);
-    } catch (error) {
+    } catch (_error) {
       // Index may already exist
       console.log(`  - Index already exists or skipped`);
     }

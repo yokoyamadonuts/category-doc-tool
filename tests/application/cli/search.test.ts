@@ -7,8 +7,6 @@ import {
   searchObjects,
   searchByFunctor,
   searchByNaturalTransformation,
-  type SearchOptions,
-  type SearchResult,
 } from "../../../src/application/cli/search";
 import { createCategoryObject } from "../../../src/domain/entities/Object";
 import { createFunctor } from "../../../src/domain/entities/Functor";

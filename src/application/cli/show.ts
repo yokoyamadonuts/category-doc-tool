@@ -32,8 +32,8 @@ export type CategoryShowResult = {
   category?: Category;
   objectCount?: number;
   morphismCount?: number;
-  objects?: CategoryObject[];
-  morphisms?: Morphism[];
+  objects?: readonly CategoryObject[];
+  morphisms?: readonly Morphism[];
 };
 
 /**

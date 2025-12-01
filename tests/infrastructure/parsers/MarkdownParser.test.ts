@@ -3,11 +3,7 @@
  * Verifies: REQ-CAT-002
  */
 import { describe, expect, it } from "bun:test";
-import {
-  MarkdownParser,
-  type ParsedDocument,
-  type DocumentSection,
-} from "../../../src/infrastructure/parsers/MarkdownParser";
+import { MarkdownParser } from "../../../src/infrastructure/parsers/MarkdownParser";
 
 describe("MarkdownParser", () => {
   const parser = new MarkdownParser();

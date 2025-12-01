@@ -4,7 +4,6 @@
  */
 import { describe, expect, it } from "bun:test";
 import {
-  type NaturalTransformation,
   createNaturalTransformation,
   getId,
   getName,

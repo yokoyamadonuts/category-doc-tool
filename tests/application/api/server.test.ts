@@ -2,7 +2,7 @@
  * Hono API Server Tests
  * Verifies: REQ-VIS-001, REQ-VIS-003
  */
-import { describe, expect, it, beforeAll } from "bun:test";
+import { describe, expect, it } from "bun:test";
 import { createApp } from "../../../src/application/api/server";
 import { createCategory } from "../../../src/domain/entities/Category";
 import { createCategoryObject } from "../../../src/domain/entities/Object";
@@ -91,7 +91,7 @@ describe("Hono API Server", () => {
 
       const data = await res.json();
       expect(data.objects.length).toBeGreaterThan(0);
-      expect(data.objects.every((o: any) => o.domain === "test-domain")).toBe(true);
+      expect(data.objects.every((o: { domain: string }) => o.domain === "test-domain")).toBe(true);
     });
   });
 
@@ -119,7 +119,7 @@ describe("Hono API Server", () => {
       expect(res.status).toBe(200);
 
       const data = await res.json();
-      expect(data.morphisms.every((m: any) => m.source === "obj-1")).toBe(true);
+      expect(data.morphisms.every((m: { source: string }) => m.source === "obj-1")).toBe(true);
     });
   });
 

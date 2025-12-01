@@ -40,7 +40,7 @@ export class NaturalTransformationRepository
       return null;
     }
 
-    return this.recordToEntity(result.records[0].get("n"));
+    return this.recordToEntity(result.records[0]!.get("n"));
   }
 
   async findBySourceFunctor(functorId: string): Promise<NaturalTransformation[]> {

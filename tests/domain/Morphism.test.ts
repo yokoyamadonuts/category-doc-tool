@@ -4,7 +4,6 @@
  */
 import { describe, expect, it } from "bun:test";
 import {
-  type Morphism,
   createMorphism,
   createIdentity,
   compose,

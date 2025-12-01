@@ -30,6 +30,7 @@ export default tseslint.config(
         {
           argsIgnorePattern: "^_",
           varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
         },
       ],
       "@typescript-eslint/explicit-function-return-type": "off",
@@ -49,8 +50,8 @@ export default tseslint.config(
     files: ["tests/**/*.ts"],
     languageOptions: {
       parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        // テストファイルは型チェックなしでLint
+        project: null,
       },
     },
     rules: {
@@ -60,10 +61,12 @@ export default tseslint.config(
         {
           argsIgnorePattern: "^_",
           varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
         },
       ],
       "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/no-explicit-any": "warn",
+      // テストファイルではany型を許可（エッジケーステスト用）
+      "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-empty-object-type": "off",
       // テストファイルでは require() を許可（後方互換性テスト用）
       "@typescript-eslint/no-require-imports": "off",

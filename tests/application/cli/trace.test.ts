@@ -6,14 +6,11 @@ import { describe, expect, it } from "bun:test";
 import {
   tracePath,
   traceDomainPath,
-  type TraceOptions,
-  type TraceResult,
 } from "../../../src/application/cli/trace";
 import { createCategory } from "../../../src/domain/entities/Category";
 import { createCategoryObject } from "../../../src/domain/entities/Object";
 import { createMorphism } from "../../../src/domain/entities/Morphism";
 import { createFunctor } from "../../../src/domain/entities/Functor";
-import { createNaturalTransformation } from "../../../src/domain/entities/NaturalTransformation";
 
 describe("CLI Trace Command", () => {
   // TEST-TRACE-001: Trace path within category

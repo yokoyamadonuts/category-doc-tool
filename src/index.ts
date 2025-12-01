@@ -10,9 +10,9 @@ import { Command } from "commander";
 
 // Import CLI commands
 import { initProject } from "./application/cli/init";
-import { importDocument, importDocuments } from "./application/cli/import";
+import { importDocuments } from "./application/cli/import";
 import { validateAll } from "./application/cli/validate";
-import { searchObjects, searchByFunctor } from "./application/cli/search";
+import { searchObjects } from "./application/cli/search";
 import { tracePath, traceDomainPath } from "./application/cli/trace";
 import { listObjects, listMorphisms, listCategories } from "./application/cli/list";
 import { showObject, showCategory, showFunctor } from "./application/cli/show";
@@ -84,7 +84,7 @@ program
   .option("--categories", "Validate only categories")
   .option("--functors", "Validate only functors")
   .option("--natural-transformations", "Validate only natural transformations")
-  .action(async (options) => {
+  .action(async (_options) => {
     try {
       // Load configuration
       const parser = new YamlParser();

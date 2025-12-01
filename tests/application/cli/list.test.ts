@@ -7,8 +7,6 @@ import {
   listObjects,
   listMorphisms,
   listCategories,
-  type ListOptions,
-  type ListResult,
 } from "../../../src/application/cli/list";
 import { createCategory } from "../../../src/domain/entities/Category";
 import { createCategoryObject } from "../../../src/domain/entities/Object";

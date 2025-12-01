@@ -8,8 +8,6 @@ import { join } from "path";
 import {
   importDocument,
   importDocuments,
-  type ImportOptions,
-  type ImportResult,
 } from "../../../src/application/cli/import";
 
 describe("CLI Import Command", () => {

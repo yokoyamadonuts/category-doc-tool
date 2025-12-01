@@ -6,7 +6,6 @@ import { describe, expect, it } from "bun:test";
 import {
   YamlParser,
   type CategoryConfig,
-  type ValidationResult,
 } from "../../../src/infrastructure/parsers/YamlParser";
 
 describe("YamlParser", () => {

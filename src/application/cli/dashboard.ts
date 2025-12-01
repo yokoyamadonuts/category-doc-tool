@@ -45,7 +45,7 @@ export function createDashboardServer(
 ): DashboardServer {
   const { port = 3000, host = "127.0.0.1" } = options;
 
-  let server: Server | null = null;
+  let server: Server<unknown> | null = null;
   let isRunning = false;
 
   const app = createApp(data);
