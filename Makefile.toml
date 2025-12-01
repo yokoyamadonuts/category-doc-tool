@@ -1,0 +1,193 @@
+# CatDoc Build Configuration
+# cargo-make タスクランナー設定ファイル
+#
+# インストール: cargo install cargo-make
+# 使い方: cargo make <タスク名>
+
+[config]
+default_to_workspace = false
+
+# ==============================================================================
+# 環境変数
+# ==============================================================================
+[env]
+BUN_PATH = { script = ["which bun || echo $HOME/.bun/bin/bun"] }
+
+# ==============================================================================
+# デフォルトタスク
+# ==============================================================================
+[tasks.default]
+alias = "dev"
+
+# ==============================================================================
+# 開発タスク
+# ==============================================================================
+[tasks.dev]
+description = "開発モードで起動（ホットリロード）"
+command = "bun"
+args = ["--watch", "src/index.ts"]
+
+[tasks.start]
+description = "アプリケーションを起動"
+command = "bun"
+args = ["run", "src/index.ts"]
+
+# ==============================================================================
+# ビルドタスク
+# ==============================================================================
+[tasks.build]
+description = "プロダクションビルド"
+command = "bun"
+args = ["build", "src/index.ts", "--outdir", "dist", "--target", "bun"]
+
+[tasks.build-watch]
+description = "ウォッチモードでビルド"
+command = "bun"
+args = ["build", "src/index.ts", "--outdir", "dist", "--target", "bun", "--watch"]
+
+# ==============================================================================
+# テストタスク
+# ==============================================================================
+[tasks.test]
+description = "全テストを実行"
+command = "bun"
+args = ["test"]
+
+[tasks.test-watch]
+description = "ウォッチモードでテスト"
+command = "bun"
+args = ["test", "--watch"]
+
+[tasks.test-coverage]
+description = "カバレッジ付きでテスト実行"
+command = "bun"
+args = ["test", "--coverage"]
+
+[tasks.test-unit]
+description = "ユニットテストのみ実行"
+command = "bun"
+args = ["test", "tests/domain", "tests/infrastructure"]
+
+[tasks.test-integration]
+description = "統合テストのみ実行"
+command = "bun"
+args = ["test", "tests/integration"]
+
+# ==============================================================================
+# Lintタスク
+# ==============================================================================
+[tasks.lint]
+description = "ESLintを実行"
+command = "bun"
+args = ["run", "eslint", "src/", "tests/"]
+
+[tasks.lint-fix]
+description = "ESLintを実行して自動修正"
+command = "bun"
+args = ["run", "eslint", "src/", "tests/", "--fix"]
+
+[tasks.typecheck]
+description = "TypeScript型チェック"
+command = "bun"
+args = ["run", "tsc", "--noEmit"]
+
+# ==============================================================================
+# フォーマットタスク
+# ==============================================================================
+[tasks.format]
+description = "コードをフォーマット（Prettier）"
+command = "bun"
+args = ["run", "prettier", "--write", "src/", "tests/"]
+
+[tasks.format-check]
+description = "フォーマットチェック"
+command = "bun"
+args = ["run", "prettier", "--check", "src/", "tests/"]
+
+# ==============================================================================
+# 品質チェックタスク
+# ==============================================================================
+[tasks.check]
+description = "全ての品質チェックを実行"
+dependencies = ["typecheck", "lint", "test"]
+
+[tasks.ci]
+description = "CI用チェック（lint + typecheck + test）"
+dependencies = ["lint", "typecheck", "test"]
+
+# ==============================================================================
+# クリーンタスク
+# ==============================================================================
+[tasks.clean]
+description = "ビルド成果物を削除"
+script = ["rm -rf dist", "rm -rf .catdoc"]
+
+[tasks.clean-all]
+description = "全ての生成物を削除"
+script = ["rm -rf dist", "rm -rf node_modules", "rm -rf .catdoc"]
+
+# ==============================================================================
+# 依存関係タスク
+# ==============================================================================
+[tasks.install]
+description = "依存関係をインストール"
+command = "bun"
+args = ["install"]
+
+[tasks.update]
+description = "依存関係を更新"
+command = "bun"
+args = ["update"]
+
+# ==============================================================================
+# CLI タスク
+# ==============================================================================
+[tasks.cli]
+description = "CatDoc CLIを実行"
+command = "bun"
+args = ["run", "src/index.ts"]
+
+[tasks.cli-init]
+description = "CatDocプロジェクトを初期化"
+command = "bun"
+args = ["run", "src/index.ts", "init"]
+
+[tasks.cli-validate]
+description = "カテゴリ構造を検証"
+command = "bun"
+args = ["run", "src/index.ts", "validate"]
+
+[tasks.cli-dashboard]
+description = "ダッシュボードを起動"
+command = "bun"
+args = ["run", "src/index.ts", "dashboard"]
+
+# ==============================================================================
+# ドキュメントタスク
+# ==============================================================================
+[tasks.docs]
+description = "ドキュメントを生成（TypeDoc）"
+command = "bun"
+args = ["run", "typedoc", "--out", "docs/api", "src/"]
+
+# ==============================================================================
+# リリースタスク
+# ==============================================================================
+[tasks.release]
+description = "リリース準備（チェック + ビルド）"
+dependencies = ["check", "build"]
+
+[tasks.release-patch]
+description = "パッチバージョンをリリース"
+dependencies = ["release"]
+script = ["npm version patch"]
+
+[tasks.release-minor]
+description = "マイナーバージョンをリリース"
+dependencies = ["release"]
+script = ["npm version minor"]
+
+[tasks.release-major]
+description = "メジャーバージョンをリリース"
+dependencies = ["release"]
+script = ["npm version major"]
