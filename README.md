@@ -10,6 +10,7 @@ CatDocは、圏論（Category Theory）の概念を使ってドキュメント�
 - **検証機能**: 圏論の公理（恒等射、結合法則など）を検証
 - **REST API**: Webダッシュボード用のAPIサーバー
 - **グラフ可視化**: カテゴリ構造をノードとエッジで可視化
+- **MCPサーバー**: AI assistants（Claude, Cursor等）からの利用をサポート
 
 ## 圏論の概念とドキュメント管理の対応関係
 
@@ -285,6 +286,70 @@ Document content here...
 | GET | `/api/graph` | グラフデータ（可視化用） |
 | POST | `/api/validate` | 構造の検証 |
 | POST | `/api/trace` | パス探索 |
+
+## MCPサーバー
+
+CatDocはModel Context Protocol (MCP)サーバーとして動作し、AI assistants（Claude Desktop, Cursor等）から直接利用できます。
+
+### MCPサーバーの起動
+
+```bash
+# CLIから起動
+catdoc mcp
+
+# ダッシュボードと同時起動
+catdoc mcp --dashboard --port 3000
+```
+
+### Claude Desktopでの設定
+
+`~/Library/Application Support/Claude/claude_desktop_config.json` に以下を追加：
+
+```json
+{
+  "mcpServers": {
+    "catdoc": {
+      "command": "bunx",
+      "args": ["@anthropic-ai/catdoc-mcp"],
+      "env": {
+        "CATDOC_PROJECT_PATH": "/path/to/your/project"
+      }
+    }
+  }
+}
+```
+
+### 利用可能なMCPツール
+
+| ツール名 | 説明 |
+|---------|------|
+| `catdoc_init` | プロジェクト初期化 |
+| `catdoc_list_categories` | カテゴリ一覧取得 |
+| `catdoc_show_category` | カテゴリ詳細表示 |
+| `catdoc_list_objects` | オブジェクト一覧取得 |
+| `catdoc_show_object` | オブジェクト詳細表示 |
+| `catdoc_import_document` | ドキュメントインポート |
+| `catdoc_list_morphisms` | 射一覧取得 |
+| `catdoc_show_morphism` | 射詳細表示 |
+| `catdoc_validate` | 全体検証 |
+| `catdoc_validate_category` | カテゴリ公理検証 |
+| `catdoc_validate_functor` | 関手公理検証 |
+| `catdoc_validate_natural_transformation` | 自然変換検証 |
+| `catdoc_trace` | パス探索 |
+| `catdoc_search` | キーワード検索 |
+| `catdoc_list_functors` | 関手一覧取得 |
+| `catdoc_show_functor` | 関手詳細表示 |
+| `catdoc_list_natural_transformations` | 自然変換一覧取得 |
+| `catdoc_show_natural_transformation` | 自然変換詳細表示 |
+| `catdoc_get_graph` | グラフデータ取得 |
+
+### 環境変数
+
+| 変数名 | 説明 | デフォルト |
+|-------|------|----------|
+| `CATDOC_PROJECT_PATH` | プロジェクトルートパス | カレントディレクトリ |
+| `CATDOC_DASHBOARD` | ダッシュボード起動 (`true`/`false`) | `false` |
+| `CATDOC_DASHBOARD_PORT` | ダッシュボードポート | `3000` |
 
 ## プロジェクト構造
 

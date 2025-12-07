@@ -27,7 +27,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 2: MCP基盤実装
 
-- [-] 2. MCPサーバーコア実装
+- [x] 2. MCPサーバーコア実装
   - File: src/presentation/mcp/server.ts
   - McpServerのインスタンス化とstdioトランスポート設定
   - ツール登録の基盤実装
@@ -39,7 +39,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Language: typescript_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: MCP Server Developer | Task: Create MCP server core with stdio transport following REQ-MCP-001, using @modelcontextprotocol/sdk | Restrictions: Must follow TDD workflow (Gate-A/B/C), use stdio transport only, no network binding | Success: All TDD gates approved, server starts and responds to tools/list | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 3. MCP型定義
+- [x] 3. MCP型定義
   - File: src/presentation/mcp/types.ts
   - ToolDefinition、ToolResult、McpServerOptionsの型定義
   - Purpose: MCP固有の型を定義してタイプセーフを確保
@@ -49,7 +49,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 3: カテゴリ・オブジェクト・射ツール
 
-- [ ] 4. カテゴリ管理ツール実装
+- [x] 4. カテゴリ管理ツール実装
   - File: src/presentation/mcp/tools/categories.ts
   - catdoc_list_categories、catdoc_show_categoryツール
   - Purpose: カテゴリの一覧取得と詳細表示
@@ -60,7 +60,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Language: typescript_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: MCP Tool Developer | Task: Implement catdoc_list_categories and catdoc_show_category tools following REQ-MCP-002, reusing listCategories and showCategory from CLI | Restrictions: Must follow TDD workflow, reuse existing CLI functions, return JSON results | Success: All TDD gates approved, tools return correct category data | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 5. オブジェクト管理ツール実装
+- [x] 5. オブジェクト管理ツール実装
   - File: src/presentation/mcp/tools/objects.ts
   - catdoc_list_objects、catdoc_show_object、catdoc_import_documentツール
   - Purpose: オブジェクトの一覧、詳細、インポート機能
@@ -71,7 +71,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Language: typescript_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: MCP Tool Developer | Task: Implement catdoc_list_objects, catdoc_show_object, catdoc_import_document tools following REQ-MCP-003 | Restrictions: Must follow TDD workflow, validate file paths within project directory | Success: All TDD gates approved, tools manage objects correctly | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 6. 射管理ツール実装
+- [x] 6. 射管理ツール実装
   - File: src/presentation/mcp/tools/morphisms.ts
   - catdoc_list_morphisms、catdoc_show_morphismツール
   - Purpose: 射の一覧取得と詳細表示
@@ -84,7 +84,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 4: 検証ツール
 
-- [ ] 7. 全体検証ツール実装
+- [x] 7. 全体検証ツール実装
   - File: src/presentation/mcp/tools/validate.ts
   - catdoc_validateツール（全体検証）
   - Purpose: カテゴリ、関手、自然変換の一括検証
@@ -95,7 +95,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Language: typescript_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: MCP Tool Developer | Task: Implement catdoc_validate tool following REQ-MCP-005 criteria 1-4, reusing validateAll from CLI | Restrictions: Must follow TDD workflow, return isValid, errors, warnings, summary | Success: All TDD gates approved, validation results are accurate | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 8. カテゴリ単体検証ツール実装
+- [x] 8. カテゴリ単体検証ツール実装
   - File: src/presentation/mcp/tools/validate.ts (追記)
   - catdoc_validate_categoryツール
   - Purpose: 単一カテゴリの圏論公理検証
@@ -106,7 +106,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Language: typescript_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: MCP Tool Developer | Task: Implement catdoc_validate_category tool following REQ-MCP-005 criterion 5, checking identity morphisms, reference integrity, composition closure | Restrictions: Must follow TDD workflow, provide detailed error messages | Success: All TDD gates approved, category axioms are verified correctly | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 9. 関手検証ツール実装
+- [x] 9. 関手検証ツール実装
   - File: src/presentation/mcp/tools/validate.ts (追記)
   - catdoc_validate_functorツール
   - Purpose: 単一関手の公理検証
@@ -117,7 +117,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Language: typescript_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: MCP Tool Developer | Task: Implement catdoc_validate_functor tool following REQ-MCP-005 criterion 6, checking category existence, object mapping, identity preservation | Restrictions: Must follow TDD workflow, verify F(id_A) = id_{F(A)} | Success: All TDD gates approved, functor axioms are verified correctly | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 10. 自然変換検証ツール実装
+- [x] 10. 自然変換検証ツール実装
   - File: src/presentation/mcp/tools/validate.ts (追記)
   - catdoc_validate_natural_transformationツール
   - Purpose: 単一自然変換の検証
@@ -130,7 +130,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 5: 探索・検索ツール
 
-- [ ] 11. パス探索ツール実装
+- [x] 11. パス探索ツール実装
   - File: src/presentation/mcp/tools/trace.ts
   - catdoc_traceツール
   - Purpose: オブジェクト間のパス探索
@@ -141,7 +141,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Language: typescript_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: MCP Tool Developer | Task: Implement catdoc_trace tool following REQ-MCP-006, reusing tracePath from CLI | Restrictions: Must follow TDD workflow, return paths sorted by length | Success: All TDD gates approved, paths are found correctly | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 12. 検索ツール実装
+- [x] 12. 検索ツール実装
   - File: src/presentation/mcp/tools/search.ts
   - catdoc_searchツール
   - Purpose: キーワードによるオブジェクト検索
@@ -154,7 +154,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 6: 関手・自然変換ツール
 
-- [ ] 13. 関手ツール実装
+- [x] 13. 関手ツール実装
   - File: src/presentation/mcp/tools/functors.ts
   - catdoc_list_functors、catdoc_show_functorツール
   - Purpose: 関手の一覧取得と詳細表示
@@ -165,7 +165,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Language: typescript_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: MCP Tool Developer | Task: Implement catdoc_list_functors and catdoc_show_functor tools following REQ-MCP-008 criteria 1-2 | Restrictions: Must follow TDD workflow, include object and morphism mappings | Success: All TDD gates approved, functor data is returned correctly | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 14. 自然変換ツール実装
+- [x] 14. 自然変換ツール実装
   - File: src/presentation/mcp/tools/natural-transformations.ts
   - catdoc_list_natural_transformations、catdoc_show_natural_transformationツール
   - Purpose: 自然変換の一覧取得と詳細表示
@@ -178,7 +178,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 7: ユーティリティツール
 
-- [ ] 15. 初期化ツール実装
+- [x] 15. 初期化ツール実装
   - File: src/presentation/mcp/tools/init.ts
   - catdoc_initツール
   - Purpose: 新規プロジェクトの初期化
@@ -189,7 +189,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Language: typescript_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: MCP Tool Developer | Task: Implement catdoc_init tool following REQ-MCP-011, reusing initProject from CLI | Restrictions: Must follow TDD workflow, respect force option | Success: All TDD gates approved, project initialization works correctly | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 16. グラフデータツール実装
+- [x] 16. グラフデータツール実装
   - File: src/presentation/mcp/tools/graph.ts
   - catdoc_get_graphツール
   - Purpose: グラフ可視化用データの取得
@@ -202,7 +202,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 8: ツール登録・統合
 
-- [ ] 17. ツール登録モジュール
+- [x] 17. ツール登録モジュール
   - File: src/presentation/mcp/tools/index.ts
   - 全ツールのエクスポートと登録関数
   - Purpose: すべてのツールをMCPサーバーに登録
@@ -212,7 +212,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 9: ダッシュボード連携
 
-- [ ] 18. ダッシュボード自動起動実装
+- [x] 18. ダッシュボード自動起動実装
   - File: src/presentation/mcp/server.ts (追記)
   - --dashboardオプション処理
   - Purpose: MCPサーバーと同時にダッシュボードを起動
@@ -225,7 +225,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 10: CLIコマンド追加
 
-- [ ] 19. MCP CLIコマンド追加
+- [x] 19. MCP CLIコマンド追加
   - File: src/index.ts (追記)
   - catdoc mcpコマンドの追加
   - Purpose: CLIからMCPサーバーを起動可能に
@@ -235,7 +235,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 11: npm配布設定
 
-- [ ] 20. npm配布設定
+- [x] 20. npm配布設定
   - File: package.json (更新)
   - npm公開用のメタデータ設定
   - binエントリの追加
@@ -244,7 +244,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Requirements: REQ-MCP-010_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: Package Maintainer | Task: Configure package.json for npm publishing as @mayyya/catdoc-mcp following REQ-MCP-010 | Restrictions: Set name to @mayyya/catdoc-mcp, configure bin entries, set files array | Success: npm pack succeeds, package is publishable | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 21. MCPエントリポイント作成
+- [x] 21. MCPエントリポイント作成
   - File: src/mcp.ts
   - npm bin用のMCPサーバーエントリポイント
   - Purpose: npx @mayyya/catdoc-mcpで直接起動可能に
@@ -254,7 +254,7 @@ Task cannot be marked [x] until Gate-C is approved.
 
 ### Phase 12: ドキュメント・最終確認
 
-- [ ] 22. README更新
+- [x] 22. README更新
   - File: README.md (更新)
   - MCPサーバーの設定・使用方法を追記
   - Purpose: ユーザーがMCPサーバーを設定できるようにする
