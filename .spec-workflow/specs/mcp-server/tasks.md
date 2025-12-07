@@ -262,7 +262,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Requirements: REQ-NFR-USE-003_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: Technical Writer | Task: Update README.md with MCP server setup instructions, Claude Desktop config example | Restrictions: Keep existing content, add MCP section | Success: Users can configure MCP server following README | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 23. 統合テスト
+- [x] 23. 統合テスト
   - File: tests/presentation/mcp/integration.test.ts
   - エンドツーエンドのMCPサーバーテスト
   - Purpose: 全機能の統合動作確認
@@ -270,7 +270,7 @@ Task cannot be marked [x] until Gate-C is approved.
   - _Requirements: All REQ-MCP-*_
   - _Prompt: Implement the task for spec mcp-server, first run spec-workflow-guide to get the workflow guide then implement the task: Role: QA Engineer | Task: Create integration tests for MCP server covering all tools | Restrictions: Test real tool execution, verify JSON responses | Success: All tools work correctly in integration | Mark task in-progress in tasks.md before starting, mark complete when done_
 
-- [ ] 24. 最終確認・クリーンアップ
+- [x] 24. 最終確認・クリーンアップ
   - lint、typecheck、全テスト実行
   - Purpose: リリース前の品質確認
   - _Requirements: All REQ-NFR-*_
