@@ -1,5 +1,5 @@
 {
-  "name": "@anthropic-ai/catdoc-mcp",
+  "name": "@mayyya/catdoc-mcp",
   "version": "0.1.0",
   "description": "Category-theoretic documentation tool with MCP server support for AI assistants",
   "module": "src/index.ts",
