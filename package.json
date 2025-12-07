@@ -1,16 +1,40 @@
 {
-  "name": "catdoc",
+  "name": "@mayyya/catdoc-mcp",
   "version": "0.1.0",
-  "description": "Category-theoretic documentation tool for managing documents across different domains",
+  "description": "Category-theoretic documentation tool with MCP server support for AI assistants",
   "module": "src/index.ts",
   "type": "module",
-  "private": true,
   "bin": {
-    "catdoc": "./src/index.ts"
+    "catdoc": "./src/index.ts",
+    "catdoc-mcp": "./src/mcp.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./mcp": "./src/mcp.ts"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "category-theory",
+    "documentation",
+    "ai-assistant",
+    "claude"
+  ],
+  "author": "mayyya",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mayyya/catdoc-mcp"
   },
   "scripts": {
     "start": "bun run src/index.ts",
     "dev": "bun --watch src/index.ts",
+    "mcp": "bun run src/mcp.ts",
     "build": "bun build src/index.ts --outdir dist --target bun",
     "test": "bun test",
     "test:watch": "bun test --watch",
@@ -34,6 +58,7 @@
   },
   "dependencies": {
     "@libsql/client": "^0.15.15",
+    "@modelcontextprotocol/sdk": "^1.24.3",
     "commander": "^14.0.2",
     "hono": "^4.10.7",
     "neo4j-driver": "^6.0.1",

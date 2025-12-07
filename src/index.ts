@@ -432,5 +432,26 @@ program
     }
   });
 
+// MCP command
+program
+  .command("mcp")
+  .description("Start CatDoc as an MCP server")
+  .option("-d, --dashboard", "Start dashboard server alongside MCP")
+  .option("-p, --port <port>", "Dashboard port number", "3000")
+  .action(async (options) => {
+    try {
+      const { startMcpServer } = await import("./presentation/mcp/server.js");
+
+      await startMcpServer({
+        projectPath: process.cwd(),
+        dashboard: options.dashboard,
+        dashboardPort: parseInt(options.port, 10),
+      });
+    } catch (error) {
+      console.error("Error:", error instanceof Error ? error.message : error);
+      process.exit(1);
+    }
+  });
+
 // Parse and execute
 program.parse();
